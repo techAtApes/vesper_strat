@@ -193,11 +193,11 @@ def weth_vault(pm, gov, weth, rewards, guardian):
 
 @pytest.fixture
 def want_pool():
-    yield Contract('0x4B2e76EbBc9f2923d83F5FBDe695D8733db1a17B')
+    yield Contract('0xd1C117319B3595fbc39b471AB1fd485629eb05F2')
 
 @pytest.fixture
 def pool_rewards():
-    yield Contract("0x479A8666Ad530af3054209Db74F3C74eCd295f8D")
+    yield Contract("0x93567318aaBd27E21c52F766d2844Fc6De9Dc738")
 
 # @pytest.fixture
 # def wbtc_strategy(strategist, keeper, wbtc_vault, StrategyVesper, gov, want_pool, pool_rewards, vsp, uni_router, sushi_router):
