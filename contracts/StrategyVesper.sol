@@ -70,7 +70,7 @@ contract StrategyVesper is BaseStrategy {
     bool public isOriginal = true;
     string internal strategyName;
 
-    address public constant weth        = 0xC02aaA39b223FE8D0A0e5C4F27eAD9083C756Cc2;
+    address public constant dai        = 0x6b175474e89094c44da98b954eedeac495271d0f;
     address public constant vsp         = 0x1b40183EFB4Dd766f11bDa7A7c3AD8982e998421;
     address public constant uniRouter   = 0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D;
     address public constant sushiRouter = 0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F;
@@ -394,11 +394,11 @@ contract StrategyVesper is BaseStrategy {
     }
 
     function _sell(uint256 _amount) internal {
-        bool is_weth = address(want) == weth;
-        address[] memory path = new address[](is_weth ? 2 : 3);
+        bool is_dai = address(want) == dai;
+        address[] memory path = new address[](is_dai ? 2 : 3);
         path[0] = address(vsp);
-        path[1] = weth;
-        if (!is_weth) {
+        path[1] = dai;
+        if (!is_dai) {
             path[2] = address(want);
         }
         IUniswapV2Router(activeDex)
@@ -461,13 +461,13 @@ contract StrategyVesper is BaseStrategy {
     }
 
     function convertVspToWant(uint256 _amount) internal view returns (uint256) {
-        bool is_weth = address(want) == weth;
-        address[] memory path = new address[](is_weth ? 2 : 3);
+        bool is_dai = address(want) == dai;
+        address[] memory path = new address[](is_dai ? 2 : 3);
         path[0] = address(vsp);
-        if (is_weth) {
-            path[1] = weth;
+        if (is_dai) {
+            path[1] = dai;
         } else {
-            path[1] = weth;
+            path[1] = dai;
             path[2] = address(want);
         }
         return IUniswapV2Router(activeDex).getAmountsOut(_amount, path)[path.length - 1];
