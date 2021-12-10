@@ -57,9 +57,11 @@ def main():
 
     strategy = StrategyVesper.deploy(
         vault, 
-        "0x4B2e76EbBc9f2923d83F5FBDe695D8733db1a17B", # want pool
-        "0x479A8666Ad530af3054209Db74F3C74eCd295f8D", # wbtc rewards
-        "0x1b40183EFB4Dd766f11bDa7A7c3AD8982e998421", # vsp
+        # "0x4B2e76EbBc9f2923d83F5FBDe695D8733db1a17B", # want pool 
+        "0x0538C8bAc84E95A9dF8aC10Aad17DbE81b9E36ee", # aggressive dai want pool https://etherscan.io/address/0x0538C8bAc84E95A9dF8aC10Aad17DbE81b9E36ee
+        "0x93567318aaBd27E21c52F766d2844Fc6De9Dc738", # eth rewards
+        # "0x479A8666Ad530af3054209Db74F3C74eCd295f8D", # wbtc rewards
+        "0x1b40183EFB4Dd766f11bDa7A7c3AD8982e998421", # vsp token
         "0x7a250d5630B4cF539739dF2C5dAcb4c659F2488D", # uniswap
         "0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F", # sushiswap
         1e16, # min to sell
